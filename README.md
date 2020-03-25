@@ -8,7 +8,7 @@
 
 Clique na imagem para ver uma demonstração em vídeo: 
 
-[![](./results.jpg)](https://youtu.be/_JvOQqQVYdc)
+[![](./detector.png)](https://youtu.be/_JvOQqQVYdc)
 
 Finalmente terminei a prova de conceito do detector de objetos audível. O objetivo é criar algo que possa ser utilizado por pessoas com necessidades visuais. Esta é uma prova de conceito, ou um MVP. Usei:
 

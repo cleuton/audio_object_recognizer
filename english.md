@@ -6,7 +6,7 @@
 
 Click on the image for a video presentation:
 
-[![](./results.jpg)](https://youtu.be/_JvOQqQVYdc)
+[![](./detector.png)](https://youtu.be/_JvOQqQVYdc)
 
 Finally I finished the audible object detector proof of concept. The goal is to create something that can be used by people with visual needs. This is a proof of concept, or an MVP. I used:
 
