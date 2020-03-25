@@ -6,17 +6,43 @@
 
 Click on the image for a video presentation:
 
-[![](./results.jpg)](https://youtu.be/eVmNh9URYuU)
+[![](./results.jpg)](https://youtu.be/_JvOQqQVYdc)
 
-I am developing a device to recognize objects ahead, say their names and also inform the distance to the nearest object. The idea is to create something that works for people with visual difficulties.
+Finally I finished the audible object detector proof of concept. The goal is to create something that can be used by people with visual needs. This is a proof of concept, or an MVP. I used:
 
-Whether it's going to be an embedded device (a Raspberry etc) or just a mobile app, I still don't know. But I am selecting and testing several models. In this demo, I'm using Yolo (You Only Look Once), with python and OpenCV. I was inspired by the article by [**Adrian Rosebrock**](https://www.pyimagesearch.com/2018/11/12/yolo-object-detection-with-opencv/) to create this PoC.
+- Raspberry Pi 3 with Raspbian;
+- Ultrasonic detector HC-SR04;
+- Raspberry Pi Camera;
+- Yolo model;
+- OpenCV;
 
-I've tested with CNN models in Keras, using banks like [**CIFAR**](https://www.cs.toronto.edu/~kriz/cifar.html) and [**COCODataset**](http : //cocodataset.org/#home), but Yolo's performance is better, although less accurate.
+In this demo, I'm using Yolo (You Only Look Once), with python and OpenCV. I was inspired by the [**Adrian Rosebrock**](https://www.pyimagesearch.com/2018/11/12/yolo-object-detection-with-opencv/) article to create this PoC.
+
+I've tested with CNN models in Keras, using banks like [**CIFAR**](https://www.cs.toronto.edu/~kriz/cifar.html) and [**COCODataset**](http://cocodataset.org/#home), but Yolo's performance is better, although less accurate.
 
 It is still an unfinished project, but I decided to share it for you to help me and develop your own solutions.
 
 I'm using Google's [**gTTS**](https://gtts.readthedocs.io/en/latest/) library to transcribe text to audio.
+
+## Prototype assembly
+
+You will need:
+- Flat cable to connect Raspberry PI to a protoboard;
+- Raspberry PI 3;
+- Raspberry Camera;
+- Ultrasonic sensor HC-SR04;
+- 330 ohm resistor;
+- 470 ohm resistor;
+- Switch;
+- Jumpers;
+
+To connect an HC-SR04 sensor to the Raspberry PI, follow the instructions [**in this article**](https://tutorials-raspberrypi.com/raspberry-pi-ultrasonic-sensor-hc-sr04/). The image of the article is this:
+
+![](./ultrasonic.png)
+
+I used the GPIOs: 17 (TRIGGER) and 24 (ECHO). In the image, he used: 18 (TRIGGER) and 24 (ECHO).
+
+Connect the switch by connecting the circuit ground (GND) and the GPIO 25. When you press the Switch, this GPIO will change the state and command a photo.
 
 ## Setup
 
@@ -43,6 +69,14 @@ If you want, you can pass the path of an image file to test. I attached 2 images
 
 Oh, and I created a JSON Dictionary to translate the names of the objects found (to Portuguese), but if you are an english speaker, just use the original names.
 
+## Executing on the Raspberry PI
 
+Install the conda environment: [**env-armhf.yml**](./env-armhf.yml). 
+
+The [**libdetect.py**](./libdetect.py) and the [**raspdetector.py**](./raspdetector.py) scripts must be installed on the Raspberry PI. The **raspdetector.py** script starts the object detection loop.
+
+By pressing the *switch* the device will take a photo and tell you the objects that are in it and the distance to the closest object (see the video).
+
+Read the [**OpenCV installation**](https://www.pyimagesearch.com/2018/09/26/install-opencv-4-on-your-raspberry-pi/) to see how to install the rest of the components on your Raspberry PI.
 
 

@@ -1,9 +1,11 @@
-name: audio-object-i386 
+name: audio-object-armhf 
 dependencies:
   - pip
   - python=3.6
   - pip:
     - numpy
-    - opencv-python
     - gtts
     - python-vlc
+    - picamera
+    - RPi.GPIO
+    
